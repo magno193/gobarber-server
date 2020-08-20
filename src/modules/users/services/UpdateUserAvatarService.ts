@@ -1,7 +1,4 @@
-// import path from 'path';
-// import fs from 'fs';
 import AppError from '@shared/errors/AppError';
-// import uploadConfig from '@config/upload';
 import { injectable, inject } from 'tsyringe';
 import IStorageProvider from '@shared/container/providers/StorageProvider/models/IStorageProvider';
 import IUsersRepository from '../repositories/IUsersRepository';
