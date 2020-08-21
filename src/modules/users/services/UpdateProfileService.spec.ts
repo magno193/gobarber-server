@@ -7,7 +7,7 @@ let fakeHashProvider: FakeHashProvider;
 let fakeUserRepository: FakeUsersRepository;
 let updateProfileService: UpdateProfileService;
 
-describe('UpdateUserAvatar', () => {
+describe('UpdateProfile', () => {
   beforeEach(() => {
     fakeHashProvider = new FakeHashProvider();
     fakeUserRepository = new FakeUsersRepository();
@@ -106,6 +106,16 @@ describe('UpdateUserAvatar', () => {
         email: 'johndoe@example.com',
         old_password: 'wrong-old-password',
         password: '123123',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should not be able to update the profile from non-existing user', async () => {
+    await expect(
+      updateProfileService.execute({
+        user_id: 'non-existing-user-id',
+        name: 'non-existing-name',
+        email: 'non-existing-email',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
