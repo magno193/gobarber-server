@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { RateLimiterRedis } from 'rate-limiter-flexible';
 import AppError from '@shared/errors/AppError';
-import Redis from 'redis';
+import redis from 'redis';
 
-const redisClient = Redis.createClient({
+const redisClient = redis.createClient({
   host: process.env.REDIS_HOST,
   port: Number(process.env.REDIS_PORT),
   password: process.env.REDIS_PASS || undefined,

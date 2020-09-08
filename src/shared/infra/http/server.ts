@@ -16,10 +16,10 @@ import '@shared/container';
 
 const app = express();
 
-app.use(rateLimiter);
 app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(uploadConfig.uploadsFolder));
+app.use(rateLimiter);
 app.use(routes);
 
 app.use(errors());
@@ -46,5 +46,5 @@ app.get('/', (request, response) =>
 
 app.listen(3333, () => {
   // eslint-disable-next-line no-console
-  console.log('🎖 Server started on port 3333');
+  console.log('Server started on port 3333');
 });
