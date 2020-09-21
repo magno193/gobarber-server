@@ -33,6 +33,8 @@ class ListProviderAppointmentsService {
       cacheKey,
     );
 
+    // let appointments = <Appointment[]>[];
+
     if (!appointments || appointments.length < 1) {
       appointments = await this.appointmentsRepository.findAllInDayFromProvider(
         {
